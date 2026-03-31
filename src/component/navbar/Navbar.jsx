@@ -24,6 +24,7 @@ const Navbar = () => {
                 />{' '}
               </svg>
             </div>
+
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -45,9 +46,12 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+
           <a className="btn btn-ghost text-3xl color">DigiTools</a>
         </div>
+
         <div className="navbar-center hidden lg:flex">
+          
           <ul className="menu menu-horizontal px-1">
             <li>
               <a>Products</a>
@@ -66,6 +70,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        
         <div className="navbar-end flex gap-2 md:gap-4 items-center">
           <a className="text-2xl" href="">
             <CiShoppingCart />
