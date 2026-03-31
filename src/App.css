@@ -6,3 +6,10 @@ body {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
 }
+
+.color{
+  color: #4F39F6;
+}
+.bg-color{
+  background-color: #4F39F6;
+}
