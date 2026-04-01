@@ -9,6 +9,7 @@ import Status from './component/status/status'
 import Steps from './component/steps/Steps'
 import Ctasection from './component/CTAsection/Ctasection'
 import Footer from './component/footer/Footer'
+import { ToastContainer } from 'react-toastify'
 
 const getModels = async () => {
   const res = await fetch('/data.json')
@@ -41,6 +42,7 @@ function App() {
       <Pricing />
       <Ctasection />
       <Footer />
+      <ToastContainer/>
     </>
   );
 }

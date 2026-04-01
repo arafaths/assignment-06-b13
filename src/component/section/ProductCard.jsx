@@ -1,12 +1,36 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const ProductCard = ({ cards, addedIds, setAddedIds }) => {
   
 
-  const handleBuy = card => {
+  const handleBuy = (card, name) => {
     if (!addedIds.some(c => c.id === card.id)) {
       setAddedIds([...addedIds, card]);
+      toast.success(`${name} added to cart`, {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+        
+      });
+      return
     }
+    toast.error(`${name} already add`, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+      
+    });
   };
 
   return (
@@ -51,7 +75,7 @@ const ProductCard = ({ cards, addedIds, setAddedIds }) => {
             </ul>
 
             <button
-              onClick={() => handleBuy(card)}
+              onClick={() => handleBuy(card, card.name)}
               className={`mt-5 w-full btn rounded-full ${isBuy ? 'btn-success' : 'btn-primary'}`}
             >
               {isBuy ? 'Added to Cart' : 'Buy Now'}

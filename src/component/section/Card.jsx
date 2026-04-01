@@ -1,10 +1,37 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const Card = ({ addedIds, setAddedIds }) => {
-  const HandlerDelete = id => {
+  const HandlerDelete = (id, name) => {
     const newArr = addedIds.filter(card => card.id !== id)
     setAddedIds(newArr)
+    toast.warn(`${name} Delete`, {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+          
+        });
   };
+
+  const HandlerPayment = () => {
+    setAddedIds([])
+    toast.success('Success', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }
+
   let totalPrice = 0;
   addedIds.forEach(card => {
     totalPrice+= card.price
@@ -15,7 +42,6 @@ const Card = ({ addedIds, setAddedIds }) => {
         <h2 className="text-xl font-bold text-gray-800 mb-6">Your Cart</h2>
 
         {addedIds.map((card, index) => {
-          
           return (
             <div className="space-y-4" key={index}>
               <div className="flex items-center justify-between bg-gray-50/50 p-4 rounded-xl border border-gray-50">
@@ -29,7 +55,7 @@ const Card = ({ addedIds, setAddedIds }) => {
                   </div>
                 </div>
                 <button
-                  onClick={() => HandlerDelete(card.id)}
+                  onClick={() => HandlerDelete(card.id, card.name)}
                   className="text-pink-500 hover:text-pink-600 font-medium text-sm transition-colors btn"
                 >
                   Remove
@@ -42,10 +68,15 @@ const Card = ({ addedIds, setAddedIds }) => {
         <div className="mt-8 pt-6 border-t border-gray-100">
           <div className="flex justify-between items-center mb-6">
             <span className="text-gray-400 font-medium">Total:</span>
-            <span className="text-2xl font-bold text-gray-800">${ totalPrice}</span>
+            <span className="text-2xl font-bold text-gray-800">
+              ${totalPrice}
+            </span>
           </div>
 
-          <button onClick={()=>{setAddedIds([])}} className="btn btn-primary md:btn-xl rounded-full w-full">
+          <button
+            onClick={HandlerPayment}
+            className="btn btn-primary md:btn-xl rounded-full w-full"
+          >
             Proceed To Checkout
           </button>
         </div>
