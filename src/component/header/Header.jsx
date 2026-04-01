@@ -4,7 +4,7 @@ import Banner from '../../assets/banner.png'
 
 const Header = () => {
   return (
-    <div className="container mx-auto grid md:grid-cols-2 items-center px-10 py-16 gap-10">
+    <div className="mt-10 container mx-auto grid md:grid-cols-2 items-center px-10 py-16 gap-10">
       <div>
         <span className=" bg-purple-200 color px-3 py-1 rounded-full text-sm flex items-center gap-2 w-fit">
           <FaRegDotCircle /> New: AI-Powered Tools Available

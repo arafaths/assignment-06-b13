@@ -1,13 +1,19 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import SectionTitle from './SectionTitle';
 import ProductCard from './ProductCard';
 import Card from './Card';
+import CardEmty from './CardEmty';
 
-const Section = ({ posmisModels }) => {
+const Section = ({
+  posmisModels,
+  addedIds,
+  setAddedIds,
+  activeModel,
+  setActiveModel
+}) => {
   const cards = use(posmisModels);
 
-  const [activeModel, setActiveModel] = useState('products');
-  const [addedIds, setAddedIds] = useState([]);
+  
 
   return (
     <div>
@@ -23,6 +29,8 @@ const Section = ({ posmisModels }) => {
           addedIds={addedIds}
           setAddedIds={setAddedIds}
         />
+      ) : addedIds.length == 0 ? (
+        <CardEmty setActiveModel={setActiveModel} />
       ) : (
         <Card addedIds={addedIds} setAddedIds={setAddedIds} />
       )}

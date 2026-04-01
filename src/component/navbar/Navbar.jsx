@@ -1,9 +1,9 @@
 import React from 'react';
 import { CiShoppingCart } from 'react-icons/ci';
 
-const Navbar = () => {
+const Navbar = ({ addedIds, setActiveModel }) => {
   return (
-    <div>
+    <div className="fixed w-full z-50 top-0 left-0 shadow">
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -51,7 +51,6 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          
           <ul className="menu menu-horizontal px-1">
             <li>
               <a>Products</a>
@@ -70,12 +69,22 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        
+
         <div className="navbar-end flex gap-2 md:gap-4 items-center">
-          <a className="text-2xl" href="">
-            <CiShoppingCart />
-          </a>
-          <a href="">Login</a>
+          <button
+            onClick={() => setActiveModel('card')}
+            className="relative cursor-pointer"
+          >
+            <CiShoppingCart className="text-2xl font-bold" />
+            {addedIds.length === 0 ? (
+              ''
+            ) : (
+              <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white">
+                {addedIds.length}
+              </span>
+            )}
+          </button>
+          <button className="cursor-pointer">Login</button>
           <a className="btn btn-primary rounded-full">Get Started</a>
         </div>
       </div>
