@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "name": "AI Writing Pro",
+    "price": 29,
+    "type": "Mo",
+    "badge": "Best Seller",
+    "image": "/products/writing.png",
+    "features": [
+      "Unlimited AI generations",
+      "50+ writing templates",
+      "Grammar checker"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Design Templates Pack",
+    "price": 49,
+    "type": "One-Time",
+    "badge": "Popular",
+    "image": "/products/design.png",
+    "features": ["2000+ templates", "Monthly updates", "Commercial license"]
+  },
+  {
+    "id": 3,
+    "name": "Premium Stock Assets",
+    "price": 19,
+    "type": "Mo",
+    "badge": "New",
+    "image": "/products/shopping.png",
+    "features": ["10M+ assets", "Commercial use", "No attribution"]
+  },
+  {
+    "id": 4,
+    "name": "Automation Toolkit",
+    "price": 79,
+    "type": "Mo",
+    "badge": "Popular",
+    "image": "/products/operation.png",
+    "features": ["50+ automations", "API access", "Custom workflows"]
+  },
+  {
+    "id": 5,
+    "name": "Resume Builder Pro",
+    "price": 15,
+    "type": "One-Time",
+    "badge": "New",
+    "image": "/products/portfolio.png",
+    "features": ["100+ templates", "ATS optimization", "Export to PDF"]
+  },
+  {
+    "id": 6,
+    "name": "Social Media Content Kit",
+    "price": 39,
+    "type": "Mo",
+    "badge": "Best Seller",
+    "image": "/products/social.png",
+    "features": ["5000+ assets", "Scheduler included", "Analytics dashboard"]
+  }
+]

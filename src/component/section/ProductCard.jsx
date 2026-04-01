@@ -1,73 +1,64 @@
 import React from 'react';
 
-const ProductCard = () => {
+const ProductCard = ({ cards, addedIds, setAddedIds }) => {
+  
+
+  const handleBuy = card => {
+    if (!addedIds.some(c => c.id === card.id)) {
+      setAddedIds([...addedIds, card]);
+    }
+  };
+
   return (
     <div className="container mx-auto mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-      <div className="border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-lg transition">
-        <span className="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
-          New
-        </span>
+      {cards.map(card => {
+        const isBuy = addedIds.some(c => c.id === card.id);
 
-        <h2 className="text-xl font-semibold mt-3">AI Writing Pro</h2>
+        return (
+          <div
+            key={card.id}
+            className="border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-lg transition relative"
+          >
+            <span
+              className={`absolute right-3 top-3 text-xs px-3 py-1 rounded-full
+                ${
+                  card.badge == 'Popular'
+                    ? 'bg-purple-100 text-purple-600'
+                    : card.badge == 'Best Seller'
+                      ? 'bg-orange-100 text-orange-600'
+                      : 'bg-green-100 text-green-600'
+                }
+                `}
+            >
+              {card.badge}
+            </span>
 
-        <p className="mt-2 text-lg font-bold">
-          $29 <span className="text-gray-500 text-sm">/Mo</span>
-        </p>
+            <div className="w-16 h-16 p-4 border border-gray-200 rounded-full flex items-center justify-center">
+              <img src={card.image} alt={card.name} />
+            </div>
 
-        <ul className="mt-3 text-gray-600 space-y-1">
-          <li>✔ Unlimited AI generations</li>
-          <li>✔ Unlimited AI generations</li>
-          <li>✔ Unlimited AI generations</li>
-        </ul>
+            <h2 className="text-xl font-semibold mt-3">{card.name}</h2>
 
-        <button className="mt-5 w-full btn btn-primary rounded-full">
-          Buy Now
-        </button>
-      </div>
+            <p className="mt-2 text-lg font-bold">
+              ${card.price}{' '}
+              <span className="text-gray-500 text-sm">/{card.type}</span>
+            </p>
 
-      <div className="border rounded-xl p-5 shadow-sm hover:shadow-lg transition">
-        <span className="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
-          New
-        </span>
+            <ul className="mt-3 text-gray-600 space-y-1">
+              {card.features.map((fea, index) => (
+                <li key={index}>✔ {fea}</li>
+              ))}
+            </ul>
 
-        <h2 className="text-xl font-semibold mt-3">AI Writing Pro</h2>
-
-        <p className="mt-2 text-lg font-bold">
-          $29 <span className="text-gray-500 text-sm">/Mo</span>
-        </p>
-
-        <ul className="mt-3 text-gray-600 space-y-1">
-          <li>✔ Unlimited AI generations</li>
-          <li>✔ Unlimited AI generations</li>
-          <li>✔ Unlimited AI generations</li>
-        </ul>
-
-        <button className="mt-5 w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2 rounded-full">
-          Buy Now
-        </button>
-      </div>
-
-      <div className="border rounded-xl p-5 shadow-sm hover:shadow-lg transition">
-        <span className="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
-          New
-        </span>
-
-        <h2 className="text-xl font-semibold mt-3">AI Writing Pro</h2>
-
-        <p className="mt-2 text-lg font-bold">
-          $29 <span className="text-gray-500 text-sm">/Mo</span>
-        </p>
-
-        <ul className="mt-3 text-gray-600 space-y-1">
-          <li>✔ Unlimited AI generations</li>
-          <li>✔ Unlimited AI generations</li>
-          <li>✔ Unlimited AI generations</li>
-        </ul>
-
-        <button className="mt-5 w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2 rounded-full">
-          Buy Now
-        </button>
-      </div>
+            <button
+              onClick={() => handleBuy(card)}
+              className={`mt-5 w-full btn rounded-full ${isBuy ? 'btn-success' : 'btn-primary'}`}
+            >
+              {isBuy ? 'Added to Cart' : 'Buy Now'}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };

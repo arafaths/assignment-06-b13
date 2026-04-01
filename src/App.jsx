@@ -7,6 +7,13 @@ import Section from './component/section/Section'
 import Status from './component/status/status'
 import Steps from './component/steps/Steps'
 
+const getModels = async () => {
+  const res = await fetch('/data.json')
+  return res.json();
+}
+
+const posmisModels = getModels();
+
 function App() {
 
   return (
@@ -14,11 +21,11 @@ function App() {
       <Navbar />
       <Header />
       <Status />
-      <Section />
+      <Section posmisModels={posmisModels} />
       <Steps />
-      <Pricing/>
+      <Pricing />
     </>
-  )
+  );
 }
 
 export default App
