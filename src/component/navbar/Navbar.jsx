@@ -47,7 +47,7 @@ const Navbar = ({ addedIds, setActiveModel }) => {
             </ul>
           </div>
 
-          <a className="btn btn-ghost text-3xl color">DigiTools</a>
+          <a className="btn-ghost text-xl md:text-3xl color font-bold md:btn">DigiTools</a>
         </div>
 
         <div className="navbar-center hidden lg:flex">
@@ -84,8 +84,8 @@ const Navbar = ({ addedIds, setActiveModel }) => {
               </span>
             )}
           </button>
-          <button className="cursor-pointer">Login</button>
-          <a className="btn btn-primary rounded-full">Get Started</a>
+          <button className="cursor-pointer hidden md:block">Login</button>
+          <a className="btn btn-primary btn-sm md:btn-md rounded-full">Get Started</a>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ const SectionTitle = ({ activeModel, setActiveModel, addedIds }) => {
   };
   return (
     <div className="text-center mt-20">
-      <h1 className="text-4xl font-bold">
+      <h1 className="text-2xl md:text-4xl font-bold">
         {activeModel == 'products' ? 'Digital Tools' : 'Premium Digital Tools'}
       </h1>
       <p className="text-gray-500 mt-2 max-w-140 mx-auto">
@@ -17,13 +17,13 @@ const SectionTitle = ({ activeModel, setActiveModel, addedIds }) => {
       <div className="mt-5 border w-fit mx-auto border-gray-300 p-1 rounded-full  ">
         <button
           onClick={() => activeHanler('products')}
-          className={`btn rounded-full border-0 ${activeModel == 'products' ? 'btn-primary' : ''}`}
+          className={`w-25 btn rounded-full border-0 ${activeModel == 'products' ? 'btn-primary' : ''}`}
         >
           Products
         </button>
         <button
           onClick={() => activeHanler('card')}
-          className={`btn rounded-full border-0 ${activeModel == 'products' ? '' : 'btn-primary'}`}
+          className={`w-25 btn rounded-full border-0 ${activeModel == 'products' ? '' : 'btn-primary'}`}
         >
           Cart ({addedIds.length})
         </button>

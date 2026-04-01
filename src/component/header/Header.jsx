@@ -5,12 +5,12 @@ import Banner from '../../assets/banner.png'
 const Header = () => {
   return (
     <div className="mt-10 container mx-auto grid md:grid-cols-2 items-center px-10 py-16 gap-10">
-      <div>
+      <div className="order-2 md:order-1">
         <span className=" bg-purple-200 color px-3 py-1 rounded-full text-sm flex items-center gap-2 w-fit">
           <FaRegDotCircle /> New: AI-Powered Tools Available
         </span>
 
-        <h1 className="text-5xl font-bold mt-5 leading-tight">
+        <h1 className="text-2xl md:text-5xl font-bold mt-5 leading-tight">
           Supercharge Your <br /> Digital Workflow
         </h1>
 
@@ -20,20 +20,19 @@ const Header = () => {
           Products
         </p>
 
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-wrap gap-4 mt-6">
           <button className="btn btn-primary rounded-full">
             Explore Products
           </button>
 
-          <button className="btn btn-outline btn-primary rounded-full">▶ Watch Demo</button>
+          <button className="btn btn-outline btn-primary rounded-full">
+            ▶ Watch Demo
+          </button>
         </div>
       </div>
 
-      <div>
-        <img
-          src={Banner}
-          alt="AI"
-        />
+      <div className="order-1 md:order-2">
+        <img src={Banner} alt="AI" className="w-full" />
       </div>
     </div>
   );
